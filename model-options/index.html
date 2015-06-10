@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body class="container">
+    <h1>ngModelOptions</h1>
+    <hr>
     <h3>Update model value until 'blur' (leave) is applied to field</h3>
     <p>If <strong>escape</strong> key is pressed field value is reset to current model value using <strong>$rollbackViewValue</strong></p>
     <div ng-controller="ModelOptionsController">
@@ -41,7 +43,7 @@
                        ng-model-options="{ debounce: 1000 }" />
             </label>
             <button ng-click="userForm.userName.$rollbackViewValue(); user.name = ''">Clear</button>
-            <pre>user.name <span ng-bind="user.name"></span></pre>
+            <pre>user.name = <span ng-bind="user.name"></span></pre>
         </form>
     </div>
 

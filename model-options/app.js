@@ -21,7 +21,7 @@ angular.module('modeloptionsApp', [])
 }])
 
 
-// getter and setters
+// getters and setters
 .controller('GetterSetterCtrl', ['$scope', function($scope){
     var _name = 'Ivan';
     $scope.user = {
