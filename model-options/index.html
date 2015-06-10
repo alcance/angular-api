@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body class="container">
-    <h2>Update model value until 'blur' (leave) is applied to field</h2>
+    <h3>Update model value until 'blur' (leave) is applied to field</h3>
     <p>If <strong>escape</strong> key is pressed field value is reset to current model value using <strong>$rollbackViewValue</strong></p>
     <div ng-controller="ModelOptionsController">
         <form name="userForm">
@@ -29,6 +29,33 @@
             </label><br />
         </form>
         <pre>user.name = <span ng-bind="user.name"></span></pre>
+    </div>
+
+    <h3>Debounced value updated after 1000ms</h3>
+    <div ng-controller="DebounceCtrl">
+        <form name="userForm">
+            <label>
+                Name:
+                <input type="text"  name="userName"
+                       ng-model="user.name"
+                       ng-model-options="{ debounce: 1000 }" />
+            </label>
+            <button ng-click="userForm.userName.$rollbackViewValue(); user.name = ''">Clear</button>
+            <pre>user.name <span ng-bind="user.name"></span></pre>
+        </form>
+    </div>
+
+    <h3>Set value using getters/setters</h3>
+    <div ng-controller="GetterSetterCtrl">
+        <form name="userForm">
+            <label>
+                Name:
+                <input type="text" name="userName"
+                       ng-model="user.name"
+                       ng-model-options="{ getterSetter: true }" />
+            </label>
+        </form>
+        <pre>user.name = <span ng-bind="user.name()"></span></pre>
     </div>
 </body>
 </html>
