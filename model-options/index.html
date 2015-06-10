@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="modeloptionsApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular [Model Options]</title>
+    <!--<script src="../bower_components/jquery/jquery.min.js"></script>-->
+    <!--<script src="https://code.angularjs.org/1.3.16/angular-animate.min.js"></script>-->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>-->
+    <!--<script src="../bower_components/underscore/underscore-min.js"></script>-->
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="container">
+    <h2>Update model value until 'blur' (leave) is applied to field</h2>
+    <p>If <strong>escape</strong> key is pressed field value is reset to current model value using <strong>$rollbackViewValue</strong></p>
+    <div ng-controller="ModelOptionsController">
+        <form name="userForm">
+            <label>
+                Name:
+                <input type="text" name="userName"
+                       ng-model="user.name"
+                       ng-model-options="{ updateOn: 'blur' }"
+                       ng-keyup="cancel($event)" />
+            </label><br />
+            <label>
+                Other data:
+                <input type="text" ng-model="user.data"/>
+            </label><br />
+        </form>
+        <pre>user.name = <span ng-bind="user.name"></span></pre>
+    </div>
+</body>
+</html>

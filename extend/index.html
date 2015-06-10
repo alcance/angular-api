@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular extend</title>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.16/angular.min.js"></script>-->
+    <script src="app.js"></script>
+</head>
+<body>
+<h1>Extended</h1>
+<div ng-controller="ThingCtrl">
+    <p>Scope #1: {{thingOne}}</p>
+    <p>Scope #2: {{thingTwo}}</p>
+    <p>Get Scopes: {{getThings()}} </p>
+</div>
+
+<h1>Separate models from methods</h1>
+<div ng-controller="ThingSeparatedCtrl">
+    <p>Scope #1: {{thingOne_}}</p>
+    <p>Scope #2: {{thingTwo_}}</p>
+    <p>Get Scopes: {{getThings_()}} </p>
+</div>
+
+<h1>Getters and Setters</h1>
+<div ng-controller="ThingsGetSetCtrl">
+
+</div>
+
+</body>
+</html>
