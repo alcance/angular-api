@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="debouncedApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular [Model Options - Debounced]</title>
+    <script src="../bower_components/angular/angular.min.js"></script>
+    <script src="debounce.js"></script>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body class="container">
+    <div ng-controller="DebounceCtrl">
+        <form name="userForm">
+            <label>
+                Name:
+                <input type="text"  name="userName"
+                       ng-model="user.name"
+                       ng-model-options="{ debounce: 1000 }" />
+            </label>
+            <button ng-click="userForm.userName.$rollbackViewValue(); user.name = ''">Clear</button>
+            <pre>user.name <span ng-bind="user.name"></span></pre>
+        </form>
+    </div>
+</body>
+</html>
